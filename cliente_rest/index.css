@@ -1,0 +1,143 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+  }
+  
+  #chatMedico li{
+    margin-top:10px;
+    font-weight:normal;
+  } 
+
+  #chatMedico{
+    text-align: left;
+  }
+
+
+  #mensajePaciente{
+    text-align: left;
+    margin-right:30%;
+  }
+
+  #mensajeMedico{
+    text-align: right;
+    margin-left:30%;
+  }
+
+  h1 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      background-color: #3d9e3d; 
+      padding: 10px;
+      color: #fff;
+
+  }
+
+  .activa h1{
+    margin-top:0;
+  }
+
+  #mensaje_texto{
+    width: 85%;
+  }
+  
+  h2 {
+    margin-top: 30px;
+    color: #004100;
+  }
+  
+  button {
+    padding: 7px 15px;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: #3d9e3d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #007400;
+  }
+  
+  input,
+  select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin-left: 20px;
+    margin-right:20px;
+  }
+  
+  /* Estilos específicos para cada sección */
+  .seccion {
+    display: none;
+  }
+  
+  .activa {
+    display: block;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  #login {
+    text-align: center;
+  }
+  
+  #menu-principal {
+    text-align: center;
+  }
+  
+  #nuevo_nombre,
+  #nuevo_apellidos,
+  #nuevo_fecha,
+  #select_género,
+  #medico_asignado,
+  #nuevo_codigo,
+  #nuevo_observaciones,
+  #nombre_modificado,
+  #apellidos_modificado,
+  #fecha_modificado,
+  #género_modificado,
+  #observaciones_modificado,
+  #medicamento,
+  #n_paciente,
+  #dosis,
+  #tomas,
+  #frecuencia,
+  #observaciones_medicacion {
+    width: 100%;
+  }
+  
+  #datos_pacientes li {
+    margin-bottom: 10px;
+  }
+  
+  #info_paciente li {
+    margin-bottom: 10px;
+  }
+  
+  #info_medicacion li {
+    margin-bottom: 10px;
+  }
+  

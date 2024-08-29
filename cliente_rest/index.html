@@ -1,0 +1,140 @@
+<!-- INDEX MEDICO -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Ejemplo de aplicacion Single Page</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- .seccion{display: none;} -> Todos los elementos con la clase seccion están en oculto -->
+    <!-- .activa{display: block;} -> Todos los elementos con la clase activa están en visibles -->
+    <style>
+        .seccion{display: none;} 
+        .activa{display: block;}
+    </style>  
+</head>
+<body>
+    <h1>APLICACIÓN MÉDICO</h1>
+    <div id="login" class="seccion activa">
+        <h2>Inicio Sesión</h2><br>
+        <div>Usuario:  <input id="user" type="text" /></div>
+        <div>Contraseña: <input id="password" type="password" /></div><br>
+       <button onclick="loginMedico()">Entrar</button> 
+    </div>
+    <div id="menu-principal" class="seccion">
+        <h2>Menú principal: <b id="datos_medico"></b></h2><br>
+        <b>Número de tomas total del Ministerio de Salud:</b><p id="cuenta_tomas"></p><br>
+        <ul id="datos_pacientes"></ul>
+        <button onclick="cambiarSeccion('añadir-paciente')"> Añadir paciente</button>
+        
+        <button onclick="salir();cerrarConexion()"> Salir </button>
+    </div>
+    <div id="añadir-paciente" class="seccion">
+        <h2>Añadir paciente</h2><br>
+            <b>Nombre<input id="nuevo_nombre" type="text"/></b><br>
+            <b>Apellidos<input id="nuevo_apellidos" type="text"/></b><br>
+            <b>Fecha de Nacimiento<input id="nueva_fecha" type="Date"/></b><br>
+            <b>Género<select name="Género" id="select_género"></b>
+                <option selected="selected">Seleccione el sexo</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+            </select><br>
+            <b>Código de Acceso<input id="nuevo_codigo" type="text"/></b><br>
+            <b>Observaciones<input id="nuevo_observaciones" type="text"/></b><br><br>
+            <button onclick="cambiarSeccion('menu-principal')"> Atrás</button>
+            <button onclick="salir();cerrarConexion()"> Salir </button>
+            <button onclick="añadirPaciente();loginMedico()">Añadir</button>
+    </div>
+    <div id="informacion-paciente" class="seccion">
+        <h2>Información del paciente:</h2><br>
+        <h3>Datos:</h3><br><ul id="info_paciente"></ul>
+        <button onclick="cambiarSeccion('modificar-paciente')"> Modificar </button><br><br>
+        <br><h3>Medicación:</h3><ul id="info_medicacion"></ul>
+        <button onclick="cambiarSeccion('añadir-medicacion');medicamentos()"> Añadir medicamento </button><br><br>
+        <p id="mensajito"></p>
+        
+        <button onclick="cambiarSeccion('menu-principal');loginMedico()"> Atrás</button>
+        <button onclick="salir();cerrarConexion()"> Salir </button>
+    </div>
+    <div id="modificar-paciente" class="seccion">
+        <h2>Nuevos datos del paciente: </h2><br>
+        <b>Nombre<input id="nombre_modificado" type="text"/></b><br>
+            <b>Apellidos<input id="apellidos_modificado" type="text"/></b><br>
+            <b>Fecha de Nacimiento<input id="fecha_modificado" type="Date"/></b><br>
+            <b>Género<select name="Género" id="género_modificado"></b>
+                <option selected="selected">Seleccione el sexo</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+            </select><br>
+            <b>Observaciones<input id="observaciones_modificado" type="text"/></b><br><br>
+        <button onclick="cambiarSeccion('informacion-paciente')"> Cancelar </button>
+        <button onclick="modificar()"> Aceptar </button>
+    </div>
+
+    <div id="añadir-medicacion" class="seccion">
+        <h2>Añadir medicación: </h2><br>
+        <b>Medicamento<select name="medicamento" id="posibles_medicamentos"><br></select></b><br>
+        <b>Dosis<input id="dosis" type="number"></b><br>
+        <b>Tomas<input id="tomas" type="number"/></b><br>
+        <b>Frecuencia<select name="frecuencia" id="frecuencia"></b>
+            <option selected="selected">Seleccione la frecuencia</option>
+            <option value="1">Tomar cada día</option>
+            <option value="2">Tomar cada dos días</option>
+            <option value="0.5">Tomar dos veces al día</option>
+            <option value="0.25">Tomar cuatro veces al día</option>
+            <option value="0">Toma única</option>
+        </select><br>
+        <b>Observaciones<input id="observaciones_medicacion" type="text"/></b><br>
+        <b>Búsqueda: <input id="busqueda" type="text"/></b><button onclick="buscador()">Buscar</button>
+        <ul id="listaMedicamentos"></ul><br><br>
+
+        <button onclick="cambiarSeccion('informacion-paciente')">Cancelar</button>
+        <button onclick="añadirMedicacion()">Añadir</button>
+    </div>
+
+    <div id="consultar-tomas" class="seccion">
+        <ul id="info_tomas"></ul>
+        <button onclick="cambiarSeccion('informacion-paciente')"> Atrás</button>
+        <button onclick="salir();cerrarConexion()"> Salir </button>
+    </div>
+    <div class="activa">
+        <h1>CHAT</h1>
+        <ul id="chatMedico"></ul>
+    </div>
+    
+    <script src="rest.js"></script>
+    <script src="main.js"></script>
+<script>
+    var seccionActual = "login"; 
+    function cambiarSeccion(seccion){
+    document.getElementById(seccionActual).classList.toggle("activa"); //la función verifica si el elemento ya tiene la clase "activa". Si el elemento tiene la clase "activa", la función la quita. Si el elemento no tiene la clase "activa", la función la añade.
+    document.getElementById(seccion).classList.toggle("activa");
+    seccionActual=seccion;
+    }
+    
+    function añadirPaciente(){
+        nuevoPaciente();
+        cambiarSeccion('menu-principal');
+    }
+    
+    function salir(){
+        cambiarSeccion("login");
+    }
+
+    function modificar(){
+        CambiarDatosPaciente();
+        cambiarSeccion('informacion-paciente');
+        datosPaciente(r);
+        medicacionPaciente(r);
+
+    }
+
+    function añadirMedicacion(){
+        nuevaMedicacion();
+        cambiarSeccion('informacion-paciente');
+        datosPaciente(r);
+        medicacionPaciente(r);
+    }
+    
+</script>
+</body>
+</html>

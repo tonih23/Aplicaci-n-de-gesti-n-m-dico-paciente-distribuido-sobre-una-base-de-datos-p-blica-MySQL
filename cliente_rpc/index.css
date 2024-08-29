@@ -1,0 +1,199 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 1%;
+    background-color: #3d70b8; /* Azul */
+    padding: 2%;
+    color: #fff;
+  }
+  
+  #chatPaciente{
+    text-align: left;
+  }
+  
+  #mensajeMedico{
+    text-align: left;
+    margin-right:30%;
+  }
+
+  #mensajePaciente{
+    text-align: right;
+    margin-left:30%;
+  }
+
+  #chatPaciente li{
+    margin-top:10px;
+  }
+
+  .activa h1{
+    margin-top:0;
+  }
+
+  h2 {
+    margin-top: 3%;
+    color: #3d70b8; /* Azul */
+  }
+  
+  button {
+    padding: 7px 15px;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: #3d70b8; /* Azul */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  details {
+    background-color: #e7e7ff; /* color de fondo cuando no está desplegado */
+    position:relative;
+    margin-top:5%;
+  }
+
+  details[open] {
+    background: #ffffff; /* color de fondo cuando está desplegado */
+    
+    margin-top:5%;
+  }
+
+  details summary::before {
+    content: "▲";
+    font-size: 1rem;
+    float:left;
+    margin-top:5%;
+  }
+
+  details[open] summary::before {
+    transform: rotate(180deg);
+  }
+
+  button:hover {
+    background-color: #00395e; /* Azul oscuro */
+  }
+
+  details summary {
+    font-weight: 400; /* peso de la tipografía cuando no está desplegado */
+    list-style: none; /* ocultamos la flecha */
+    cursor: pointer; /* cambia el cursor del puntero por una manita*/
+    padding-left:5%;
+    overflow:hidden;
+    align-items:center;
+    position:relative;
+  } 
+
+  details summary b span{
+    padding-left:4em;
+    display:flex;
+    float:left;
+    margin-top:5%;
+    margin-bottom:5%;
+    align-items:center;
+    justify-content: space-evenly;
+  }
+
+  summary > ul{
+    margin:0;
+    padding:0;
+    float:right;
+    padding-left:10%;
+    padding-right:10%;
+    overflow-x: auto;
+    white-space: nowrap; /* Evita el salto de línea de los elementos <li> dentro de <ul> */
+    max-width: 100%;
+  }
+
+  summary > ul > li{
+    padding-bottom:-5px;
+    display: inline-block;
+    white-space: nowrap;
+  }  
+
+  details p {
+    background: #e7e7ff; /* color de fondo del contenido oculto */
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  input,
+  select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin-left: 20px;
+    margin-right:20px;
+  }
+
+  /* Estilos específicos para cada sección */
+  .seccion {
+    display: none;
+  }
+  
+  .activa {
+    display: block;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  #login {
+    text-align: center;
+  }
+  
+  #bienvenido {
+    text-align: center;
+  }
+  
+  #ver_tomas {
+    text-align: center;
+  }
+  
+  #datos_paciente li {
+    margin-bottom: 10px;
+  }
+  
+  #lista_medicamentos li {
+    margin-bottom: 10px;
+  }
+  
+  #tomas li {
+    margin-bottom: 8%;
+    margin-top: 6%;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

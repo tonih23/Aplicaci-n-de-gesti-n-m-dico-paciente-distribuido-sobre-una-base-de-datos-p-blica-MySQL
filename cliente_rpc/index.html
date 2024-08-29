@@ -1,0 +1,62 @@
+    <!-- INDEX PACIENTE -->
+
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Añadido el meta viewport -->
+
+	<title>Gestión paciente</title>
+	<link rel="stylesheet" href="index.css">
+
+	<style>
+        .seccion{display: none;} 
+        .activa{display: block;}
+    </style>  
+	<script src="rest.js"></script> 
+	<script src="rpc.js"></script>
+	<script src="main.js"></script>
+</head>
+
+<body>
+	<h1>APLICACIÓN PACIENTE</h1>
+    <div id="login" class="seccion activa">
+        <h2>Inicio Sesión</h2><br>
+        <div>Código:  <input id="cod" type="text" /></div><br>
+        <button onclick="log()">Entrar</button> 
+    </div>
+	<div id="bienvenido" class="seccion">
+		<ul id="datos_paciente"></ul>
+		<h2>Medicación asignada:</h2>
+		<ul id="lista_medicamentos"></ul>
+		<p id="pedir_cita"></p>
+		<p><button onclick="enviarDatosMedicacion()">Enviar datos de medicación</button></p>
+		<button onclick="cambiarSeccion('login');cerrarConexion()"> Salir </button>
+	</div>
+	
+	<div id="ver_tomas" class="seccion">
+		<ul id="tomas"></ul>
+        <button onclick="cambiarSeccion('login');cerrarConexion()"> Salir </button>
+		<button onclick="cambiarSeccion('bienvenido');log()"> Atrás </button>
+	</div>
+	<div id="nueva_toma" class="seccion">
+		<h2>hola</h2>
+		<button onclick="cambiarSeccion('login');cerrarConexion()"> Salir </button>
+		<button onclick="cambiarSeccion('bienvenido');log()"> Atrás </button>
+	</div>
+	<div class="activa">
+		<h1>CHAT</h1>
+		<ul id="chatPaciente"></ul>
+	</div>
+	<script>
+		var seccionActual = "login"; 
+		function cambiarSeccion(seccion){
+		document.getElementById(seccionActual).classList.toggle("activa"); //la función verifica si el elemento ya tiene la clase "activa". Si el elemento tiene la clase "activa", la función la quita. Si el elemento no tiene la clase "activa", la función la añade.
+		document.getElementById(seccion).classList.toggle("activa");
+		seccionActual=seccion;
+		}	
+	</script>
+</body>
+
+</html>
