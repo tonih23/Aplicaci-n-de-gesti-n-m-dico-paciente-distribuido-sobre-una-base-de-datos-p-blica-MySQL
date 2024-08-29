@@ -1,2 +1,4 @@
-# Aplicaci-n-de-gesti-n-m-dico-paciente-distribuido-sobre-una-base-de-datos-p-blica-MySQL
-Es una aplicación distribuida que facilita la interacción médico-paciente en un entorno hospitalario simulado. Combina RPC, REST y WebSocket sobre una base de datos MySQL. Permite multitud de funcionalidades como múltiples funcionalidades como la gestión de medicación, visualización y actualización de historiales médicos, programación de citas etc.
+# INSTRUCCIONES
+Dentro de virtualstudio por ejemplo ,nos situamos sobre el archivo servidor.js -->click derecho-->open in integrated terminal-->abajo en el terminal pongo node servidor.js-->me voy a navegador y pongo para el paciente http://localhost:3000/apiCliente/ y para el medico http://localhost:3000/apiMedico/
+
+BASE DATOS-->http://localhost/phpmyadmin
