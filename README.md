@@ -1,0 +1,2 @@
+# Aplicaci-n-de-gesti-n-m-dico-paciente-distribuido-sobre-una-base-de-datos-p-blica-MySQL
+Es una aplicación distribuida que facilita la interacción médico-paciente en un entorno hospitalario simulado. Combina RPC, REST y WebSocket sobre una base de datos MySQL. Permite multitud de funcionalidades como múltiples funcionalidades como la gestión de medicación, visualización y actualización de historiales médicos, programación de citas etc.
